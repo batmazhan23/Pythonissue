@@ -132,7 +132,7 @@ app.layout = html.Div(children=[
                                 html.Div([
                                         html.Div([], id='plot4'),
                                         html.Div([], id='plot5')
-                                ], style={'display': 'flex'})        
+                                ], style={'display': 'flex'}), ])        
                                
                                 
 
@@ -166,7 +166,7 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
             bar_fig = px.bar(bar_data, x='Month', y='Flights', color='CancellationCode', title='Monthly Flight Cancellation')
             
             # TASK5: Average flight time by reporting airline
-            line_fig = px.line(input_data, x='Month', y='Airtime', color='Reporting_Airline', title='Average monthly flight time (minutes) by airline')
+            line_fig = px.line(line_data, x='Month', y='AirTime', color='Reporting_Airline', title='Average monthly flight time (minutes) by airline')  
             
             
             # Percentage of diverted airport landings per reporting airline
@@ -185,7 +185,7 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
                     geo_scope='usa') # Plot only the USA instead of globe
             
             # TASK6: Number of flights flying to each state from each reporting airline
-            tree_fig = px.treemap(data, path=['DestState', 'Reporting_Airline'], 
+            tree_fig = px.treemap(tree_data, path=['DestState', 'Reporting_Airline'], 
                       values='Flights',
                       color='Flights',
                       color_continuous_scale='RdBu',
